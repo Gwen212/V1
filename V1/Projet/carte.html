@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chasse au Trésor - Carte</title>
+    <style>
+        /* Mise en page de base pour la carte */
+        body {
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #7ca4a5;
+        }
+
+        #mapImage {
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+        }
+
+        /* Style du conteneur de la croix */
+        .cross-zone {
+            position: absolute;
+            top: 49%; /* Ajuste la position pour que la croix soit au bon endroit */
+            left: 40.5%; /* Ajuste la position pour que la croix soit au bon endroit */
+            width: 50px; /* Taille de la zone cliquable */
+            height: 50px;
+            cursor: pointer;
+            /*background-color: rgba(255, 0, 0, 0.2); /* Pour visualiser la zone (à enlever) */
+        }
+
+        /* Style du conteneur du coffre */
+        #coffreContainer {
+            display: none; /* Masqué au début */
+        }
+        
+        #coffreImage {
+            width: 100%;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Section de la carte -->
+    <div id="carteContainer">
+        <h1>Carte au Trésor</h1>
+        <div style="position: relative; display: inline-block;">
+            <img id="mapImage" src="Images/carte.png" alt="Carte au trésor">
+            <!-- Zone cliquable sur la croix de la carte -->
+            <div class="cross-zone" onclick="afficherCoffre()"></div>
+        </div>
+        <h4>Touche la croix jeune pirate</h4>
+    </div>
+
+    <!-- Conteneur du coffre, masqué au départ -->
+    <div id="coffreContainer">
+        <h2>Félicitations, tu as trouvé le trésor !</h2>
+        <img id="coffreImage" src="Images/coffre.webp" alt="Coffre au trésor">
+    </div>
+
+    <script>
+        function afficherCoffre() {
+            // Masquer la carte
+            document.getElementById('carteContainer').style.display = 'none';
+            // Afficher l'image du coffre
+            document.getElementById('coffreContainer').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
